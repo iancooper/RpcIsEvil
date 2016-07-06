@@ -41,7 +41,8 @@ class Bag:
         return "Tea Bag, English Breakfast"
 
     def brew(self):
-        pass
+        print("Brewing a cup")
+        time.sleep(3)
 
 
 class Cup:
@@ -61,6 +62,11 @@ class Cup:
 
     def fill(self, ingredient):
         self._contents.append(ingredient)
+
+    def stew(self):
+        for ingredient in self._contents:
+            if isinstance(ingredient, Bag):
+                ingredient.brew()
 
 
 class Milk:
@@ -100,12 +106,13 @@ class TeaDispenser:
     def ready_cup(self):
         print("Ready Cup")
         self._cup.fill(Bag())
-        return ("Cup Ready")
+        return ("Cup Ready with Bag")
 
     def pour_water(self):
         print("Fill cup with water")
         if self._water.boiled:
             self._cup.fill(self._filled)
+            self._cup.stew()
         else:
             raise DispenserException("The water has not boiled")
         return ("Filled Cup with Water")
@@ -120,6 +127,10 @@ class TeaDispenser:
         for i in range(1, spoons):
             self._cup.fill(Sugar())
         return ("Added sugar")
+
+    def done(self):
+        print("Share and enjoy!")
+        return("Drink dispensed")
 
 
 class Water:
