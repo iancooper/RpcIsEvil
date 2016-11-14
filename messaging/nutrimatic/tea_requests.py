@@ -38,14 +38,14 @@ class BeverageType(Enum):
 
 
 class TeaRequest:
-    def __init__(self, beverage_type: int, has_milk: bool, no_of_sugars: int):
-        self._beverage_type = beverage_type
+    def __init__(self, beverage_type: BeverageType, has_milk: bool, no_of_sugars: int):
+        self._beverage_type = beverage_type.value
         self._has_milk = has_milk
         self._no_of_sugars = no_of_sugars
 
     @property
-    def beverage_type(self) -> BeverageType:
-        return BeverageType(self._beverage_type)
+    def beverage_type(self) -> int:
+        return self._beverage_type
 
     @property
     def has_milk(self) -> bool:

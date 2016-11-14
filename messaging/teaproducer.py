@@ -47,7 +47,7 @@ def run_client():
     # tea request
     request = TeaRequest(BeverageType.tea, has_milk=True, no_of_sugars=2)
     header = BrightsideMessageHeader(uuid4(), topic, BrightsideMessageType.command, uuid4())
-    body = BrightsideMessageBody(json.dumps(request))
+    body = BrightsideMessageBody(json.dumps(request.__dict__))
     message = BrightsideMessage(header, body)
 
     consumer.purge()

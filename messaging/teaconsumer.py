@@ -30,7 +30,11 @@ THE SOFTWARE.
 ***********************************************************************
 """
 
-from kombu_brighter.kombu_gateway import BrightsideKombuConsumer, BrightsideKombuConnection, BrightsideKombuProducer
+from kombu_brighter.kombu_gateway import BrightsideKombuConsumer, BrightsideKombuConnection
+from nutrimatic.nutrimatic_drinks_dispenser import TeaDispenser
+from nutrimatic.tea_requests import BeverageType, TeaRequest
+import json
+
 
 def run_client():
     # setup
@@ -39,7 +43,20 @@ def run_client():
     consumer = BrightsideKombuConsumer(connection, "tea_requests", topic)
 
     read_message = consumer.receive(3)
-    print(read_message)
+
+    if read_message is not None:
+        message_body = json.loads(read_message.body.value)
+        tea_request = TeaRequest(BeverageType(message_body["_beverage_type"]), message_body["_has_milk"], message_body["_no_of_sugars"])
+        if BeverageType(tea_request.beverage_type) == BeverageType.tea:
+            dispenser = TeaDispenser()
+            dispenser.fill()
+            dispenser.boil()
+            dispenser.ready_cup()
+            dispenser.pour_water()
+            if tea_request.has_milk:
+                dispenser.add_milk()
+            if tea_request.no_of_sugars() > 0:
+                dispenser.add_sugar(tea_request.no_of_sugars())
 
 
 if __name__ == "__main__":
