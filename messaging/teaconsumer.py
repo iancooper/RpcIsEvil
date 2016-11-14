@@ -46,7 +46,11 @@ def run_client():
 
     if read_message is not None:
         message_body = json.loads(read_message.body.value)
-        tea_request = TeaRequest(BeverageType(message_body["_beverage_type"]), message_body["_has_milk"], message_body["_no_of_sugars"])
+        beverage_str = message_body["_beverage_type"]
+        beverage_type = BeverageType(beverage_str)
+        has_milk = message_body["_has_milk"]
+        no_of_sugars = message_body["_no_of_sugars"]
+        tea_request = TeaRequest(beverage_type, has_milk, no_of_sugars)
         if BeverageType(tea_request.beverage_type) == BeverageType.tea:
             dispenser = TeaDispenser()
             dispenser.fill()

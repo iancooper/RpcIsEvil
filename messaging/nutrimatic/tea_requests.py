@@ -28,11 +28,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ***********************************************************************
 """
-from enum import Enum, unique
+from enum import IntEnum, unique
 
 
 @unique
-class BeverageType(Enum):
+class BeverageType(IntEnum):
     tea = 0,
     coffee = 1
 
