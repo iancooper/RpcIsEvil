@@ -37,22 +37,20 @@ from nutrimatic.tea_requests import TeaRequest, BeverageType
 import json
 
 
-def run_client():
+def run_server():
     # setup
     topic = "cup of tea"
     connection = BrightsideKombuConnection("amqp://guest:guest@localhost:5672//", "teasmaid.exchange")
     producer = BrightsideKombuProducer(connection)
-    consumer = BrightsideKombuConsumer(connection, "tea_requests", topic)
 
     # tea request
     request = TeaRequest(BeverageType.tea, has_milk=True, no_of_sugars=2)
+
     header = BrightsideMessageHeader(uuid4(), topic, BrightsideMessageType.command, uuid4())
     body = BrightsideMessageBody(json.dumps(request.__dict__))
     message = BrightsideMessage(header, body)
 
-    consumer.purge()
-
     producer.send(message)
 
 if __name__ == "__main__":
-    run_client()
+    run_server()
