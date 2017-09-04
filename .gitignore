@@ -87,3 +87,21 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+messaging/.idea/messaging.iml
+
+messaging/.idea/misc.xml
+
+messaging/.idea/modules.xml
+
+messaging/.idea/vcs.xml
+
+messaging/.idea/workspace.xml
+
+rpc/.idea/misc.xml
+
+rpc/.idea/modules.xml
+
+rpc/.idea/rpc.iml
+
+rpc/.idea/workspace.xml

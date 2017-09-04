@@ -36,7 +36,7 @@ from xmlrpc.client import ServerProxy
 
 def run_client():
 
-    proxy = ServerProxy("http://localhost:9000", allow_none=True) # , verbose=True
+    proxy = ServerProxy("http://localhost:9000", allow_none=True, verbose=True)
     print(proxy.fill())
     print(proxy.boil())
     print(proxy.ready_cup())
