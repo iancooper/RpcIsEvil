@@ -2,13 +2,11 @@
 File         : kombu_messaging.py
 Author           : ian
 Created          : 09-28-2016
-
 Last Modified By : ian
 Last Modified On : 09-28-2016
 ***********************************************************************
 The MIT License (MIT)
 Copyright © 2016 Ian Cooper <ian_hammond_cooper@yahoo.co.uk>
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the “Software”), to deal
 in the Software without restriction, including without limitation the rights

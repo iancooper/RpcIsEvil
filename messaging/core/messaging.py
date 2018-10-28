@@ -2,7 +2,6 @@
 File             : messaging.py
 Author           : ian
 Created          : 07-08-2016
-
 Last Modified By : ian
 Last Modified On : 07-08-2016
 ***********************************************************************

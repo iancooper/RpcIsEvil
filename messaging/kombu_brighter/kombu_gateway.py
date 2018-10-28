@@ -2,7 +2,6 @@
 File         : kombu_gateway_tests.py
 Author           : ian
 Created          : 09-01-2016
-
 Last Modified By : ian
 Last Modified On : 09-01-2016
 ***********************************************************************

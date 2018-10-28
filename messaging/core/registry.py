@@ -2,7 +2,6 @@
 File             : registry.py
 Author           : ian
 Created          : 02-15-2016
-
 Last Modified By : ian
 Last Modified On : 02-15-2016
 ***********************************************************************

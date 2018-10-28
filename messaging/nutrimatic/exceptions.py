@@ -2,7 +2,6 @@
 File             : exceptions.py
 Author           : ian
 Created          : 07-05-2016
-
 Last Modified By : ian
 Last Modified On : 07-05-2016
 ***********************************************************************
