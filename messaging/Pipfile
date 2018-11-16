@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+amqp = "*"
+brightside = "*"
+kombu = "*"
+mock = "*"
+pbr = "*"
+poll = "*"
+six = "*"
+stevedore = "*"
+vine = "*"
+ez_setup = "*"
+greenlet = "*"
+
+[requires]
+python_version = "3.7"
